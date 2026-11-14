@@ -1,0 +1,23 @@
+[package]
+name = "ladyboyai"
+version = "0.1.0"
+edition = "2021"
+description = "ladyboyai - milestone-gated creator funding escrow on NEAR (testnet demo)"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = { version = "=5.9.0" }
+primitive-types = { version = "0.12", default-features = false }
+
+[dev-dependencies]
+near-sdk = { version = "=5.9.0", features = ["unit-testing"] }
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
